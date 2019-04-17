@@ -10,7 +10,7 @@ import doodle.backend.StandardInterpreter._
 // 2. run the `console` command within `sbt`
 // 3. enter `Example.image.draw`
 object Example {
-  val image = circle(10).fillColor(Color.red) on circle(20) on circle(30)
+  val image = square(10).fillColor(Color.green) on circle(20) on circle(30)
 
   def main(args: Array[String]): Unit = {
     image.draw
