@@ -171,3 +171,17 @@ def sample(start: Angle, samples: Int, empty: Image, combine: (Angle, Image) => 
 
   loop(samples)
 }
+
+def locate(scale: Point => Point, point: Angle => Point): Angle => Point =
+  (angle: Angle) => scale(point(angle))
+
+def scale(factor: Double): Point => Point =
+  (pt: Point) => {
+    Point.polar(pt.r * factor, pt.angle)
+  }
+
+// Rose on circle
+val flower = {
+  sample(0.degrees, 200, locate(scale(200), rose _)) on
+    sample(0.degrees, 40, locate(scale(150), parametricCircle _))
+}
